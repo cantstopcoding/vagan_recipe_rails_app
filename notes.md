@@ -31,4 +31,4 @@ belongs_to: recipes
 Category
 name
 has_many :recipes
-has_many :users, through: :recipes
+belongs_to :users, through: :recipes
