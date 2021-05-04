@@ -16,6 +16,7 @@ class UsersController < ApplicationController
   def show
     # what is the difference between find and find_by?
     # find_by_id returns nil and find_by returns error
+    redirect_if_not_logged_in
     @user = User.find_by_id(params[:id])
     redirect_to "/" if !@user
   end
