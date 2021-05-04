@@ -1,14 +1,11 @@
 <h1>Login Page</h1>
-
 <%= flash[:message] if flash[:message] %>
-
 <%# sets the argument of what model im using %>
 <%# when you send the user as an object it's able to just post to the login route %>
 <%= form_for(:user) do |f| %>
-    <%= f.label :email %><br>
-    <%= f.email_field :email %><br>
-    <%= f.label :password %><br>
-    <%= f.password_field :password %><br>
-
-    <%= f.submit "Submit" %>
+  <%= f.label :email %><br>
+  <%= f.email_field :email %><br>
+  <%= f.label :password %><br>
+  <%= f.password_field :password %><br>
+  <%= f.submit "Submit" %>
 <% end %>
