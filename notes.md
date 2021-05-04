@@ -32,3 +32,5 @@ Category
 name
 has_many :recipes
 belongs_to :users, through: :recipes
+
+### Things to Address
