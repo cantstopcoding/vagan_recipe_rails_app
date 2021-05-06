@@ -1,1 +1,4 @@
 <h1>All Recipes</h1>
+<% @recipes.each do |r| %>
+  <%= link_to r.title, recipe_path(r) %>  by: <%= r.user.username %>
+<% end %>
