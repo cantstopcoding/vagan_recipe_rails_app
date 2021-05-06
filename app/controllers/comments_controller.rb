@@ -9,7 +9,6 @@ class CommentsController < ApplicationController
 
   def create
     @comment = current_user.comments.build(comment_params)
-    binding.pry
     if @comment.save
       redirect_to comments_path
     else
