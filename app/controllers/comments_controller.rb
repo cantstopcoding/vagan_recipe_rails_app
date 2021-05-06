@@ -1,6 +1,13 @@
 class CommentsController < ApplicationController
   def index
-    @comments = Comment.all
+    # then it's nested
+    if params[:recipe_id] && @recipe = Recipe.find_by_id(params[:recipe_id])
+      @comments = @recipe.comments
+    else
+      # it's @error and not flash because of redirect, But why. Source video 3 25:00
+      @error = "That Recipe Doesn't Exist" if params[:recipe_id]
+      @comments = Comment.all
+    end
   end
 
   def new
