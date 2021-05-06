@@ -1,1 +1,4 @@
 <h1>All Comments</h1>
+<% @comments.each do |c|%>
+  <li><%= c.content %></li>
+<% end %>
