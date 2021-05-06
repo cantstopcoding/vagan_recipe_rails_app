@@ -21,6 +21,13 @@
         <%= link_to "Sign Up", signup_path %> |
         <%= link_to "Log In", login_path %>
       <% end %>
+      <div>
+        <% if flash[:message] %>
+          <%= flash[:message] %>
+        <% end %>
+        <%# why no if statement for @error, and it's different handling for rendering and redirect. %>
+        <%= @error %>
+      </div>
     </div>
     <%= yield %>
   </body>
