@@ -1,5 +1,7 @@
 <h1><%= @recipe.title %></h1>
 By:<%= @recipe.user.username %>
+<p><%= link_to "See all Comments", recipe_comments_path(@recipe.id) %></p>
+<p><%= link_to "Add new Comment", new_recipe_comment_path(@recipe.id) %></p>
 <h2>Comments:</h2>
 <% @recipe.comments.each do |c|%>
   <li><strong><%= c.user.username %></strong> says: <%=link_to c.content, comment_path(c) %></li>
