@@ -2,7 +2,12 @@ class RecipesController < ApplicationController
   before_action :redirect_if_not_logged_in
 
   def index
-    @recipes = Recipe.all
+    if params[:user_id] && @user = User.find_by_id(params[:user_id])
+      @recipes = @user.recipes
+    else
+      @error = "That recipe doesn't exist" if params[:user_id]
+      @recipes = Recipe.all
+    end
   end
 
   def new
