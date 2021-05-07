@@ -11,7 +11,12 @@ class CommentsController < ApplicationController
   end
 
   def new
-    @comment = Comment.new
+    if params[:recipe_id] && @recipe = Recipe.find_by_id(params[:recipe_id])
+      @comment = @recipe.comments.build
+    else
+      @error = "This recipe doesn't exist" if params[:recipe_id]
+      @comment = Comment.new
+    end
   end
 
   def create
