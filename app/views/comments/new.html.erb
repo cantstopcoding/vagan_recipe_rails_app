@@ -1,6 +1,7 @@
-<%= form_for ([@recipe, @comment]) do |f| %>
-  <% if @recipe %>
-    <h1>New Comment for <%= @recipe.title %></h1>
+<%# try to only work off of one variable in the views%>
+<%= form_for ([@comment.recipe, @comment]) do |f| %>
+  <% if @comment.recipe %>
+    <h1>New Comment for <%= @comment.recipe.title %></h1>
   <% else %>
     <h1>New Comment</h1>
   <% end %>
@@ -14,12 +15,12 @@
       </ul>
     </div>
   <% end %>
-  <% if !@recipe %>
+  <% if !@comment.recipe %>
     <%= f.label :recipe %>
-    <br>
     <%= f.collection_select :recipe_id, Recipe.all, :id, :title %>
-    <br>
-    <br>
+  <% else %>
+    <%# but why a hidden field? what does it mean? %>
+    <%= f.hidden_field :recipe_id %>
   <% end %>
   <%= f.label :content %>
   <br>
