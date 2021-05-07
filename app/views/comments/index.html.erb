@@ -1,4 +1,4 @@
 <h1>All Comments</h1>
 <% @comments.each do |c|%>
-  <li><%= c.content %></li>
+  <li><%= c.user.username %> says "<%= c.content %>"" about: <%= c.recipe.title %></li>
 <% end %>
