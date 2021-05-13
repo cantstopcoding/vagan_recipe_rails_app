@@ -1,5 +1,13 @@
 <h1>Create New Recipe</h1>
 <%= form_for(@recipe) do |f| %>
+  <%= f.label "Pick a Category" %>
+  <%= f.collection_select :category_id, Category.all, :id, :name, include_blank: true %>
+  <p>
+    Or Create New Category:
+    <%= f.fields_for :category do |c| %>
+      <%= c.text_field :name %>
+    <% end %>
+  </p>
   <%= f.label :title %>
   <br>
   <%= f.text_field :title %>
