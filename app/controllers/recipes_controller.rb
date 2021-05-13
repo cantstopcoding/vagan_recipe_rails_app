@@ -6,7 +6,7 @@ class RecipesController < ApplicationController
       @recipes = @user.recipes
     else
       @error = "That recipe doesn't exist" if params[:user_id]
-      @recipes = Recipe.all
+      @recipes = Recipe.most_commented
     end
   end
 
