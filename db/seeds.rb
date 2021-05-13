@@ -10,9 +10,9 @@ caroline = User.create({ first_name: "Caroline", last_name: "D'ambrosio", userna
 coco = User.create({ first_name: "Coco", last_name: "Chanel", username: "chanel", email: "chanel@chanel.com", password: "pw" })
 christian = User.create({ first_name: "Christian", last_name: "Dior", username: "dior", email: "dior@dior.com", password: "pw" })
 
-# mediterranean = Category.create({ name: "Mediterranean" })
-# gluten_free = Category.create({ name: "Gluten Free" })
-# dessert = Category.create({ name: "Dessert" })
+mediterranean = Category.create({ name: "Mediterranean" })
+gluten_free = Category.create({ name: "Gluten Free" })
+dessert = Category.create({ name: "Dessert" })
 
 eggplant_recipe = Recipe.create({
   title: "Greek-Style Eggplant Recipe",
@@ -25,6 +25,7 @@ eggplant_recipe = Recipe.create({
   instructions: "Place eggplant cubes in a colander over a large bowl or directly over your sink, and sprinkle with salt. Set aside for 20 minutes or so to allow eggplant to sweat out any bitterness. Rinse with water and pat dry.",
   image_url: "https://www.themediterraneandish.com/wp-content/uploads/2020/03/braised-eggplant-recipe-greek-style-6.jpg",
   user_id: caroline.id,
+  category_id: mediterranean.id,
 })
 
 gluten_free_cookie = Recipe.create({
@@ -37,6 +38,7 @@ gluten_free_cookie = Recipe.create({
   instructions: "Bake it",
   image_url: "https://meaningfuleats.com/wp-content/uploads/2018/06/IMG_1244.jpg",
   user_id: coco.id,
+  category_id: gluten_free.id,
 })
 
 chocolate_cake = Recipe.create({
@@ -48,6 +50,7 @@ chocolate_cake = Recipe.create({
   instructions: "Bake it",
   image_url: "https://www.themediterraneandish.com/wp-content/uploads/2020/03/braised-eggplant-recipe-greek-style-6.jpg",
   user_id: christian.id,
+  category_id: dessert.id,
 })
 
 comment_1 = Comment.create({
