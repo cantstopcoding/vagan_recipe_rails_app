@@ -35,6 +35,8 @@ class RecipesController < ApplicationController
   end
 
   def update
+    @recipe = Recipe.find_by_id(params[:id])
+    redirect_to recipes_path if !@recipe || @recipe.user != current_user
     if @recipe.update(recipe_params)
       redirect_to recipe_path(@recipe)
     else
