@@ -1,19 +1,10 @@
 <%# try to only work off of one variable in the views%>
+<%= render partial: "layouts/errors", locals: {object: @comment} %>
 <%= form_for ([@comment.recipe, @comment]) do |f| %>
   <% if @comment.recipe %>
     <h1>New Comment for <%= @comment.recipe.title %></h1>
   <% else %>
     <h1>New Comment</h1>
-  <% end %>
-  <% if @comment.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
-      <ul>
-        <% @comment.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
   <% end %>
   <% if !@comment.recipe %>
     <%= f.label :recipe %>
